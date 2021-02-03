@@ -17,15 +17,6 @@ jobs:
       run: |
         wget ${{ github.event.client_payload.downloadUrl }} -O ./_posts/${{ github.event.client_payload.file.name }}
 
-    # Build jekyll
-    - uses:  lemonarc/jekyll-action@1.0.0
-
-    - name: npm install, firebase deploy
-      run: |
-        npm ci
-        npm install
-        ./node_modules/.bin/firebase deploy --project dionricky-blog --debug --only hosting --token "${{ secrets.FIREBASE_TOKEN }}"
-
     - name: Commit files
       run: |
         git add .
