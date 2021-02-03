@@ -1,4 +1,4 @@
-name: publish-blog
+name: unpublish-blog
 on:
   repository_dispatch:
     types: [google.storage.object.delete]
