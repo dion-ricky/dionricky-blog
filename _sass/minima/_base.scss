@@ -248,6 +248,7 @@ table {
     border: 1px solid darken($grey-color-light, 4%);
     border-bottom-color: darken($grey-color-light, 12%);
   }
+  // Added exception for Github Gist iframe
   td:not(.blob-num) {
     border: 1px solid $grey-color-light;
   }
