@@ -1,10 +1,9 @@
 ---
-layout: page
-title: About
-permalink: /about/
+layout: post
+title:  "Welcome to My Blog!"
+date:   2021-02-03 08:00:00 +0700
+categories: personal
 ---
-
-Welcome to my blog!
 
 This blog is NOT a source to learn stuff from. I'm still learning and I sometimes wrote here to document my learning journey. And since I'm still learning, there are lots of knowledge gaps and probably mistakes and errors on my posts.
 
