@@ -145,13 +145,55 @@ Setelah data warehouse selesai dirancang dan dibuat langkah selanjutnya adalah m
 Proses ETL biasanya menggunakan bantuan tools _workflow executor_ seperti Talend atau Airflow. Saya menggunakan Airflow karena lebih mudah digunakan dan lebih fleksibel. _Workflow_ pada Airflow dapat dibuat menggunakan bahasa pemrograman Python.
 
 ## Data Analysis
+Data warehouse dirancang untuk memudahkan akses terhadap data dan untuk membuat laporan. Akses tersebut sangat krusial pada tahap data analisis ini. Data yang awalnya berasal dari beragam sumber dan dalam beragam format sekarang sudah distandarkan dan diletakkan pada satu repositori yaitu data warehouse.
 
+Analisis data memanfaatkan statistika dan visualisasi grafik untuk menemukan pola atau informasi penting dalam kumpulan data. Informasi-informasi ini adalah basis dari keputusan-keputusan dan rencana strategis yang akan dibentuk.
+
+Pada tahap ini saya melakukan analisis dengan metode yang serupa dengan penelitian formal, yaitu dengan membentuk hipotesis-hipotesis kemudian melihat data untuk membuktikan kebenarannya. Saya memiliki total 5 topik bahasan namun disini hanya saya tampilkan sebanyak dua topik yang berkaitan dengan tahap data sains selanjutnya.
 
 ### Apakah Terdapat Peningkatan Transaksi pada Akhir Pekan?
+Akhir pekan adalah momen dimana orang-orang biasanya bersantai dan melakukan aktivitas-aktivitas yang menyenangkan dan menenangkan. Saya memperkirakan akan ada peningkatan transaksi pada akhir pekan karena banyak orang memiliki kecenderungan yang lebih tinggi untuk membuka situs e-commerce pada saat bersantai. Tentu untuk membuktikan hipotesis ini saya perlu melihat pada data yang ada.
 
+<cimg></cimg>
+![Daily sales from july to august of 2017 marked with red on the valley and green on the peak](https://storage.googleapis.com/dionricky-blog/ecommerce-data-analysis/sales_july_to_aug_2017_marked%20on%20peak%20and%20hill_v3.jpg)
+<p class='img-caption'>Gambar 2.1 Frekuensi transaksi harian pada Juli-Agustus 2017</p>
+
+Data menunjukkan bahwa justru ada penurunan transaksi pada akhir pekan. Inilah pentingnya melakukan analisis pada data. Tanpa melakukan pembersihan data dan visualisasi, informasi seperti ini akan sangat sulit untuk diketahui.
+
+Pada akhirnya hipotesis saya ternyata salah kaprah. Justru pada hari kerja jumlah transaksinya cenderung meningkat. Tentu saya tidak hanya menganalisis pada range bulan Juli hingga Agustus pada satu tahun saja. Range tersebut saya ambil hanya untuk mempermudah dalam visualisasi. Pola yang sama seperti ini dapat dilihat mulai dari bulan April hingga Oktober 2017 dan juga pada tahun 2018.
 
 ### Apa Pengaruh Penggunaan Voucher Terhadap Kepuasan Pelanggan?
+Apa yang kamu rasakan ketika mengetahui kamu hanya perlu membayar separuh harga dari total nilai transaksimu? Tentu bahagia 'kan. Atas dasar asumsi tersebutlah saya melakukan analisis ini. Saya ingin mengetahui pengaruh penggunaan voucher terhadap kepuasan pelanggan secara ilmiah menggunakan statistika.
 
+Analisis ini menjadi dasar dalam pembuatan model _machine learning_ di tahap data sains. Apabila pengguna merasa lebih puas saat menggunakan voucher, maka lebih baik informasi ini dimanfaatkan untuk meningkatkan frekuensi transaksi dari pengguna.
+
+Informasi ini juga dapat digunakan untuk meningkatkan nilai transaksi. Kamu pernah mendapat voucher yang hanya dapat digunakan apabila telah membeli minimal Rp. 100.000? Ya, seperti itu contoh sederhananya.
+
+Pada analisis ini saya menggunakan Z-test untuk mengetahui apakah ada perbedaan kepuasan ketika pengguna menggunakan voucher dibandingkan tidak menggunakan voucher. Hipotesis pada analisis ini yaitu:
+- $$H_0 \Rightarrow \bar{x}_v \approx 4.10$$.
+- $$H_a \Rightarrow \bar{x}_v \neq 4.10$$.
+
+__Tabel 2.1__ Parameter dan nilai Z-test
+
+| Parameter | Nilai |
+| --------- | ----- |
+| Avg. Feedback ($$\bar{x}_0$$) | 4.10 |
+| Sample size | 250 |
+| Sample mean | 4.09 |
+| Sample STDDEV | 1.36 |
+| Confidence level | 99% |
+| Significance level | 0.01 |
+
+__Tabel 2.2__ Hasil kalkulasi Z-score
+
+| Hasil | Nilai |
+| ----- | ----- |
+| Z-score | -0.11 (Approx.) |
+| P-value | 0.91241 (Approx.) |
+
+Hasil kalkulasi Z-score menunjukkan bahwa tidak ada perbedaan nilai ulasan pada transaksi menggunakan voucher terhadap transaksi tanpa voucher. Artinya, menggunakan voucher atau tidak ternyata tidak memiliki efek terhadap kepuasan pelanggan.
+
+Sedikit kontras dan diluar dari apa yang saya harapkan. Namun analisis ini tidak cukup untuk membuktikan apakah penggunaan voucher sama sekali tidak memiliki dampak terhadap kepuasan pelanggan. Saya hanya menganalisis pada satu variabel saja, ada kemungkinan variabel lain yang mempengaruhi kepuasan pelanggan secara lebih besar. Misalnya keterlambatan pengiriman, respon penjual yang tidak ramah, kemasan produk kurang rapi, produk cacat, dan lainnya.
 
 ## Data Science
 
