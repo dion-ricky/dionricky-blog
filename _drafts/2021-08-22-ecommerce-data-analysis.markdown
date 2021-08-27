@@ -149,11 +149,48 @@ Data warehouse dirancang untuk memudahkan akses terhadap data dan untuk membuat 
 
 Analisis data memanfaatkan statistika dan visualisasi grafik untuk menemukan pola atau informasi penting dalam kumpulan data. Informasi-informasi ini adalah basis dari keputusan-keputusan dan rencana strategis yang akan dibentuk.
 
-Pada tahap ini saya melakukan analisis dengan metode yang serupa dengan penelitian formal, yaitu dengan membentuk hipotesis-hipotesis kemudian melihat data untuk membuktikan kebenarannya. Saya memiliki total 5 topik bahasan namun disini hanya saya tampilkan sebanyak dua topik yang berkaitan dengan tahap data sains selanjutnya.
+Pada tahap ini saya melakukan analisis dengan metode yang serupa dengan penelitian formal, yaitu dengan membentuk hipotesis-hipotesis kemudian melihat data untuk membuktikan kebenarannya. Saya memiliki total 5 topik bahasan dalam bentuk pertanyaan-pertanyaan atau _business question_. Pada setiap _business question_, terdapat hipotesis dan visualisasi atau analisa statistik untuk membuktikan kebenaran dari setiap hipotesis.
 
-### Apakah Terdapat Peningkatan Transaksi pada Akhir Pekan?
+### 1. Bagaimana Persebaran Pengguna di Indonesia?
+Bagi e-commerce, penjual dan pengguna adalah komponen penggerak ekosistem jual-beli. Tanpa salah satu komponen tersebut, tidak akan ada yang namanya e-commerce. Bahkan ukuran _benchmark_ yang secara umum diterima untuk membandingkan performa antara satu e-commerce dengan yang lain.
+
+Pada pertanyaan pertama, saya memiliki 4 hipotesis sebagai berikut:
+
+#### 1.1 Pengguna terkonsentrasi di pulau Jawa
+Mengapa pulau Jawa? Populasi, terpadat di Indonesia. Jakarta, ibu kota Indonesia berada di pulau Jawa. Pulau Jawa juga memiliki banyak pelabuhan dan bandar udara internasional. Beberapa alasan tersebut sudah lebih dari cukup bagi saya untuk berasumsi bahwa pengguna e-commerce ini banyak berasal dari pulau Jawa.
+
+Bagaimana faktanya? Gambar 1.1.1, menunjukkan bahwa 5 provinsi dengan pengguna terbanyak semuanya berasal dari pulau Jawa. Sehingga hipotesis ini terbukti benar.
+
+<cimg></cimg>
+![Jumlah pengguna terhadap populasi penduduk per provinsi. Menampilkan 20 provinsi dengan pengguna terbanyak](https://storage.googleapis.com/dionricky-blog/ecommerce-data-analysis/jumlah_pengguna_per_provinsi.png)
+<p class='img-caption'>Gambar 1.1.1 Jumlah pengguna terhadap populasi per provinsi (top 20)</p>
+
+#### 1.2 Populasi mempengaruhi jumlah pengguna
+Semakin banyak populasi maka jumlah pengguna juga menjadi lebih banyak. Seperti yang terlihat pada hipotesis sebelumnya, pulau Jawa sebagai pulau terpadat di Indonesia memiliki jumlah pengguna yang sangat banyak. Bahkan 5 provinsi dengan pengguna terbanyak semuanya berasal dari pulau Jawa.
+
+Masih merujuk pada Gambar 1.1.1, garis berwarna hijau menunjukkan populasi dan bar berwarna ungu menunjukkan jumlah pengguna pada suatu provinsi. Terlihat di sebelah kanan (ekstrem kecil), jumlah populasi semakin kecil dan diikuti pula dengan jumlah pengguna yang semakin kecil. Sedangkan di sebelah kiri (ekstrem besar), terlihat ada kecenderungan pada provinsi dengan populasi yang tinggi untuk memiliki jumlah pengguna yang tinggi pula. Kesimpulannya, hipotesis ini terbukti benar.
+
+#### 1.3 Penetrasi internet mempengaruhi jumlah pengguna
+Keunggulan e-commerce adalah, pengguna hanya perlu mengakses melalui gawainya dan barang yang diinginkan dapat sampai dalam waktu 3 hari saja. Namun perlu juga diperhatikan bahwa "akses" sangat penting.
+
+Akses dalam konteks e-commerce saya bagi kedalam dua bentuk yaitu gawai (piranti keras) dan internet. Hipotesis ini akan menguji dampak ketersediaan akses internet terhadap jumlah pengguna. Sedangkan hipotesis selanjutnya akan menguji dampak keteresediaan gawai.
+
+<cimg></cimg>
+![Kontribusi penetrasi internet Indonesia. 56,4% dari pulau Jawa, 22,1% dari pulau Sumatera](https://storage.googleapis.com/dionricky-blog/ecommerce-data-analysis/kontrib_penetrasi_internet.png)
+<p class='img-caption'>Gambar 1.3.1 Kontribusi penetrasi internet Indonesia</p>
+
+<cimg></cimg>
+![Grafik pengguna per provinsi dengan disertai penanda pada pulau Jawa dan pulau Sumatera.](https://storage.googleapis.com/dionricky-blog/ecommerce-data-analysis/pengguna_per_provinsi_kontrib_penetrasi_internet.png)
+<p class='img-caption'>Gambar 1.3.2 Pengguna per provinsi terhadap kontribusi penetrasi internet</p>
+
+
+
+#### 1.4 Tingkat kepemilikan _smartphone_ mempengaruhi jumlah pengguna
+
+### 2. Apakah Terdapat Peningkatan Transaksi pada Akhir Pekan?
 Akhir pekan adalah momen dimana orang-orang biasanya bersantai dan melakukan aktivitas-aktivitas yang menyenangkan dan menenangkan. Saya memperkirakan akan ada peningkatan transaksi pada akhir pekan karena banyak orang memiliki kecenderungan yang lebih tinggi untuk membuka situs e-commerce pada saat bersantai. Tentu untuk membuktikan hipotesis ini saya perlu melihat pada data yang ada.
 
+#### 2.1 Terdapat peningkatan transaksi pada akhir pekan
 <cimg></cimg>
 ![Daily sales from july to august of 2017 marked with red on the valley and green on the peak](https://storage.googleapis.com/dionricky-blog/ecommerce-data-analysis/sales_july_to_aug_2017_marked%20on%20peak%20and%20hill_v3.jpg)
 <p class='img-caption'>Gambar 2.1 Frekuensi transaksi harian pada Juli-Agustus 2017</p>
@@ -162,7 +199,10 @@ Data menunjukkan bahwa justru ada penurunan transaksi pada akhir pekan. Inilah p
 
 Pada akhirnya hipotesis saya ternyata salah kaprah. Justru pada hari kerja jumlah transaksinya cenderung meningkat. Tentu saya tidak hanya menganalisis pada range bulan Juli hingga Agustus pada satu tahun saja. Range tersebut saya ambil hanya untuk mempermudah dalam visualisasi. Pola yang sama seperti ini dapat dilihat mulai dari bulan April hingga Oktober 2017 dan juga pada tahun 2018.
 
-### Apa Pengaruh Penggunaan Voucher Terhadap Kepuasan Pelanggan?
+### 3. Apa Pengaruh Jumlah Foto Produk Terhadap Tingkat Penjualan?
+
+
+### 4. Apa Pengaruh Penggunaan Voucher Terhadap Kepuasan Pelanggan?
 Apa yang kamu rasakan ketika mengetahui kamu hanya perlu membayar separuh harga dari total nilai transaksimu? Tentu bahagia 'kan. Atas dasar asumsi tersebutlah saya melakukan analisis ini. Saya ingin mengetahui pengaruh penggunaan voucher terhadap kepuasan pelanggan secara ilmiah menggunakan statistika.
 
 Analisis ini menjadi dasar dalam pembuatan model _machine learning_ di tahap data sains. Apabila pengguna merasa lebih puas saat menggunakan voucher, maka lebih baik informasi ini dimanfaatkan untuk meningkatkan frekuensi transaksi dari pengguna.
@@ -194,6 +234,8 @@ __Tabel 2.2__ Hasil kalkulasi Z-score
 Hasil kalkulasi Z-score menunjukkan bahwa tidak ada perbedaan nilai ulasan pada transaksi menggunakan voucher terhadap transaksi tanpa voucher. Artinya, menggunakan voucher atau tidak ternyata tidak memiliki efek terhadap kepuasan pelanggan.
 
 Sedikit kontras dan diluar dari apa yang saya harapkan. Namun analisis ini tidak cukup untuk membuktikan apakah penggunaan voucher sama sekali tidak memiliki dampak terhadap kepuasan pelanggan. Saya hanya menganalisis pada satu variabel saja, ada kemungkinan variabel lain yang mempengaruhi kepuasan pelanggan secara lebih besar. Misalnya keterlambatan pengiriman, respon penjual yang tidak ramah, kemasan produk kurang rapi, produk cacat, dan lainnya.
+
+### 5. Bagaimana Hasil Analisis RFM Pelanggan?
 
 ## Data Science
 
