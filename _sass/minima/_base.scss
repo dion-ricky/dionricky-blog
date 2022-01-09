@@ -14,7 +14,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  font: $base-font-weight #{$post-font-size}/#{$post-line-height} $base-font-family;
   color: $text-color;
   background-color: $background-color;
   -webkit-text-size-adjust: 100%;
@@ -129,12 +129,12 @@ a {
  * Blockquotes
  */
 blockquote {
-  color: $grey-color;
-  border-left: 4px solid $grey-color-light;
+  // color: $emerald-color-light;
+  border-left: 4px solid $emerald-color;
   padding-left: $spacing-unit / 2;
   @include relative-font-size(1.125);
   letter-spacing: -1px;
-  font-style: italic;
+  // font-style: italic;
 
   > :last-child {
     margin-bottom: 0;
