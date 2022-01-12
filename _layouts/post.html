@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default-post
 ---
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -16,7 +16,18 @@ layout: default
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
+    <div id='table-of-contents' class='table-of-contents'>
+      <details>
+        <summary>
+          Table of Contents
+          <span class='icon'>▾</span>
+        </summary>
+        {% toc %}
+      </details>
+    </div>
+    <div id="markdown-content">
+      {{ content }}
+    </div>
   </div>
 
   {%- if site.disqus.shortname -%}

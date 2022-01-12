@@ -22,12 +22,6 @@ toc: true
     }
 </style>
 
-## Table of contents
-{:.no_toc}
-
-* Table of contents
-{:toc}
-
 ## Background
 > "Data is the new oil." - Wired.com
 
