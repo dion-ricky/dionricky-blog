@@ -115,7 +115,7 @@ Please keep in mind that your compose project name will most likely be different
 
 After the initialization finished you can run `docker-compose up` to start all the other service that are not started from initialization previously. To see the list of running container you can execute `docker ps -a`. If you have successfully deployed all of the services, you will see something like this:
 ```
-CONTAINER ID   IMAGE                                  COMMAND                  CREATED       STATUS                                         PORTS                                       NAMES
+CONTAINER ID   IMAGE                                  COMMAND                  CREATED       STATUS                             PORTS                                       NAMES
 b367c199b89e   future_airflow-webserver               "/usr/bin/dumb-init …"   2 days ago    Up 54 seconds (healthy)            0.0.0.0:8090->8080/tcp, :::8090->8080/tcp   future_airflow-webserver_1
 7c8d7480c0e0   future_airflow-scheduler               "/usr/bin/dumb-init …"   2 days ago    Up 54 seconds (health: starting)   8080/tcp                                    future_airflow-scheduler_1
 508f5db30625   postgres:13                            "docker-entrypoint.s…"   2 days ago    Up 3 minutes (healthy)             5432/tcp                                    future_postgres_1
