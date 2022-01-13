@@ -2,7 +2,7 @@
 layout: post
 title: "Running Airflow on Docker"
 date: 2022-01-09 09:10:00 +0700
-categories: experience
+categories: tech data-engineer
 toc: true
 comments: true
 ---

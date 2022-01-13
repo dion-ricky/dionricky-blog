@@ -2,7 +2,7 @@
 layout: post
 title: "E-commerce Data Analysis using Statistics and Machine Learning"
 date: 2021-08-22 18:33:00 +0700
-categories: experience
+categories: tech data
 toc: true
 ---
 <style>
