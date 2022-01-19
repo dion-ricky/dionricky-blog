@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Running Airflow on Docker"
+title: "Running Airflow in Docker"
 date: 2022-01-09 09:10:00 +0700
 categories: tech data-engineer
 toc: true
