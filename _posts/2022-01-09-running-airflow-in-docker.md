@@ -25,7 +25,7 @@ airflow
 └── Dockerfile
 ```
 
-Inside this Dockerfile we will modify Apache's Airflow base image to add additional Python dependencies. The snippet below shows the modified base image with two additional dependency, Google Play Scraper and App Store Scraper library. You can add your own dependency using the exact same command `RUN pip install xyz` and replace `xyz` with the dependency name.
+Inside this Dockerfile we will modify Apache's Airflow base image to add additional Python dependencies. The snippet below shows the modified base image with two additional dependency, Google Play Scraper and Twitter Scraper library. You can add your own dependency using the exact same command `RUN pip install xyz` and replace `xyz` with the dependency name.
 
 <script src="https://gist.github.com/dion-ricky/71855424c0becf53f61431eee07b2ae5.js"></script>
 
