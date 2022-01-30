@@ -34,7 +34,7 @@ App reviews were scraped from Google Play Store and Apple Store for 9 Indonesian
 
 Data fetching is executed periodically using workflow executor, Airflow; here's an instruction on how to [setup Airflow in Docker][airflow-in-docker].
 
-The oldest review dated back to 2015. But the majority of the data is coming from 2021. The total row count from the oldest until the latest fetched by the time writing this is roughly 2.7 million reviews. The image below shows the scraped review distribution by year.
+The oldest review dated back to 2015. But the majority of the data are coming from 2021. The total row count from the oldest until the latest fetched by the time writing this is roughly 2.7 million reviews. The image below shows the scraped reviews distribution by year.
 
 ![Scraped Reviews Distribution by Year](https://storage.googleapis.com/dionricky-blog/2022-01-27-ecommerce-reviews-sentiment-analysis/year_review_count.png)
 <br>*Figure 2.1.1 Scraped Reviews Distribution by Year*
@@ -141,7 +141,7 @@ This LSTM model also has 85% accuracy. As such, there is no improvement from the
 ## CNN
 CNNs are infamous in the domain of computer vision, because it is specifically designed for processing image inputs. If you want to learn the details of CNN, please refer to [Saha, S. (2018)](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53), [CS231n (n.d.)](https://cs231n.github.io/convolutional-networks/), and [Brownlee, J. (2019)](https://machinelearningmastery.com/convolutional-layers-for-deep-learning-neural-networks/).
 
-You might think that if it is designed for processing image, it won't be as good as LSTM then. Well, that design is exactly the reason why CNN is also as suitable as LSTM in NLP domain. Let me explain.
+You might think that if it is designed for processing image, it won't be as good as LSTM then. Well, that design is exactly the reason why CNN is also as powerful as LSTM in NLP domain. Let me explain.
 
 For computer vision related topics like image analysis & classification, the network needs to understand and remember certain things such as spatial and temporal dependencies.
 
@@ -191,12 +191,12 @@ Training the model using an Adagrad optimizer gave me this result:
 weighted avg       0.85      0.85      0.85     48000
 ```
 
-Sadly there is no significant improvement compared to LSTM. However this model has a tendency to classify reviews as positive, that's why it has low precision for positive sentiment.
+Sadly there is no significant improvement compared to LSTM. However this model has a tendency to classify reviews as positive thus having higher false positive rate and low precision.
 
 ### CNN Stacking Ensemble
 While CNN didn't produce significant improvement as shown previously, we can improve its score by using ensemble. In this case, I will use stacking ensemble.
 
-To explain it simply, stacking is an ensemble method created by using several model trained with different parameters. Which their output will be then fed into a meta classifier to finally make a classification. Still not simple enough? Don't worry, here is an illustration to explain it visually.
+To explain it simply, stacking is an ensemble method created by combining several model trained with different parameters. Then their output will be fed into a meta classifier to finally make a classification. Still not simple enough? Don't worry, here is an illustration to explain it visually.
 
 ![An example scheme of stacking ensemble learning.](https://www.researchgate.net/publication/324552457/figure/fig3/AS:616245728645121@1523935839872/An-example-scheme-of-stacking-ensemble-learning.png)
 *Figure 7.1 An example scheme of stacking ensemble learning.<sup>5</sup>*
@@ -272,9 +272,9 @@ To satiate my curiosity, I decided to train numerous ML algorithms aside from th
 
 Now that I have this collection of models in my hands, let's do a simple voting ensemble with them.
 
-Voting ensemble is really simple, just like the name, all we have to do is to measure the class that got the highest support from the classification models. The support is calculated from the classifier models prediction probability. Say a model is predicting that an input has 85% probability of having positive sentiment, then it is also used as the support for classifying that input as positive. The negative support in this case is 15%.
+Voting ensemble is really simple, as the name implies, all we have to do is to choose the class that has the highest support from the classification models. The support is calculated from the classifier models prediction probability. Say a model is predicting that an input has 85% probability of having positive sentiment, that probability is used as a support for classifying that input as positive. The negative support in this case is 15%.
 
-Since different models have different strengths and weaknesses, combining them in this style is beneficial to get the benefit of their individual strengths while offsetting their weaknesses.
+Since different models have different strengths and weaknesses, combining them in this style is beneficial to get the full benefit of their individual strengths while offsetting their weaknesses.
 
 The list below is listing all classifier models, and their respective score, that are used in the voting ensemble.
 ```
@@ -335,11 +335,13 @@ So, that's it for this post. After exploring different classification algorithm 
 
 \[2\] Li, D., & Qian, J. (2016). Text sentiment analysis based on long short-term memory. 2016 1st IEEE International Conference on Computer Communication and the Internet, ICCCI 2016, 471–475. [https://doi.org/10.1109/CCI.2016.7778967](https://doi.org/10.1109/CCI.2016.7778967)
 
-\[3\] Amidi, A., & Amidi, S. (n.d.). Recurrent Neural Networks cheatsheet. Retrieved January 28, 2022, from [https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-recurrent-neural-networks](https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-recurrent-neural-networks)
+\[3\] Amidi, A., & Amidi, S. (n.d.). Recurrent Neural Networks cheatsheet. Retrieved January 28, 2022, from [https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-recurrent-neural-networks](https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-recurrent-neural-networks) [\[Archived 30 Jan, 2022\]](https://web.archive.org/web/20211015195726/https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-recurrent-neural-networks)
 
-\[4\] SuperDataScience Team. (2018). Recurrent Neural Networks (RNN) - The Vanishing Gradient Problem. [https://www.superdatascience.com/blogs/recurrent-neural-networks-rnn-the-vanishing-gradient-problem](https://www.superdatascience.com/blogs/recurrent-neural-networks-rnn-the-vanishing-gradient-problem)
+\[4\] SuperDataScience Team. (2018). Recurrent Neural Networks (RNN) - The Vanishing Gradient Problem. [https://www.superdatascience.com/blogs/recurrent-neural-networks-rnn-the-vanishing-gradient-problem](https://www.superdatascience.com/blogs/recurrent-neural-networks-rnn-the-vanishing-gradient-problem) [\[Archived 30 Jan, 2022\]](https://web.archive.org/web/20220130075215/https://www.superdatascience.com/blogs/recurrent-neural-networks-rnn-the-vanishing-gradient-problem)
 
-\[5\] Stacking Ensemble Learning for Short-Term Electricity Consumption Forecasting - Scientific Figure on ResearchGate. Available from: [https://www.researchgate.net/figure/An-example-scheme-of-stacking-ensemble-learning_fig3_324552457](https://www.researchgate.net/figure/An-example-scheme-of-stacking-ensemble-learning_fig3_324552457) [accessed 29 Jan, 2022]
+\[5\] Stacking Ensemble Learning for Short-Term Electricity Consumption Forecasting - Scientific Figure on ResearchGate. Available from: [https://www.researchgate.net/figure/An-example-scheme-of-stacking-ensemble-learning_fig3_324552457](https://www.researchgate.net/figure/An-example-scheme-of-stacking-ensemble-learning_fig3_324552457) [accessed 29 Jan, 2022] [\[Archived 30 Jan, 2022\]](https://web.archive.org/web/20220130075319/https://www.researchgate.net/figure/An-example-scheme-of-stacking-ensemble-learning_fig3_324552457)
+
+\[6\] Venkatachalam, M. (2019). Recurrent Neural Networks – Remembering what’s important. [https://gotensor.com/2019/02/28/recurrent-neural-networks-remembering-whats-important/](https://gotensor.com/2019/02/28/recurrent-neural-networks-remembering-whats-important/) [\[Archived 30 Jan, 2022\]](https://web.archive.org/web/20220130075502/https://gotensor.com/2019/02/28/recurrent-neural-networks-remembering-whats-important/)
 
 [airflow-in-docker]: https://dionricky.com/tech/data-engineer/2022/01/09/running-airflow-in-docker.html
 
