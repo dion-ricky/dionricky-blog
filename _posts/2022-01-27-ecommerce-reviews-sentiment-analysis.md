@@ -141,7 +141,7 @@ This LSTM model also has 85% accuracy. As such, there is no improvement from the
 ## CNN
 CNNs are infamous in the domain of computer vision, because it is specifically designed for processing image inputs. If you want to learn the details of CNN, please refer to [Saha, S. (2018)](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53), [CS231n (n.d.)](https://cs231n.github.io/convolutional-networks/), and [Brownlee, J. (2019)](https://machinelearningmastery.com/convolutional-layers-for-deep-learning-neural-networks/).
 
-You might think that if it is designed for processing image, it won't be as good as LSTM then. Well, that design is exactly the reason why CNN is also as powerful as LSTM in NLP domain. Let me explain.
+You might think that if it is designed for processing image, it won't be as good as LSTM then. Well, that design is exactly the reason why CNN is as powerful as LSTM in NLP domain. Let me explain.
 
 For computer vision related topics like image analysis & classification, the network needs to understand and remember certain things such as spatial and temporal dependencies.
 
@@ -309,7 +309,9 @@ CNN                        0       0.86      0.85      0.85
 ___________________________________________________________
 ```
 
-Voting ensemble didn't require fitting because the output is not predicted, but calculated. You still need to train the classifier model though. So here's the result of the voting ensemble:
+Voting ensemble didn't require fitting because the output is not predicted, but calculated. You still need to train the classifier model though.
+
+Here's the result of the voting ensemble:
 ```
               precision    recall  f1-score   support
 
