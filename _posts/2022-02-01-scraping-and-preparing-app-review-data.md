@@ -75,7 +75,7 @@ As I've explained before, the construction of the automated scraper function is 
 ]
 ```
 
-Not much information is captured by this scraper, but I'll need to make do with it somehow. Now that we have data from two sources, we can't possibly just merge them as once because of data type and schema issues. So, on the next section I will explain the preparation process for the review data.
+Not much information is captured by this scraper, but I'll need to make do with it somehow. Now that we have data from two sources, we can't possibly just merge them as once because of data type and schema issues. So, in the next section I will explain the preparation process for the review data.
 
 ## Data Preparation
 Since the review data are scraped from different source, aside from cleaning it we need to transform it as well. We will make sure the schema is uniform and are fit for those data. Here's the schema for the staging data layer.
