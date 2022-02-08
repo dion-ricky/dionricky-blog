@@ -12,25 +12,24 @@ In the early days of business, there is only one kind of database, transactional
 In this blog post, I will present my architecture designed to be used for mobile app review analysis requirements.
 
 ## Data Layers
-<!-- source, staging, warehouse, datamart, presentation -->
-Data in the data warehouse comes from at least one source, either operational/transactional database or flat files. The figure below shows the basic data warehouse architecture.
+Data in the data warehouse comes from at least one source, whether operational/transactional database, flat files, or any other data repository. The figure below shows the basic data warehouse architecture.
 
 ![Basic Data Warehouse Architecture](https://upload.wikimedia.org/wikipedia/commons/8/8d/Data_warehouse_architecture.jpg)
 <br>*Figure 2.1 Basic Data Warehouse Architecture*
 
-As can be seen from the previous image, there are layers of data repository. While there might be different architecture, the principles of data layer still persist. Some might skips warehouse layer entirely and just constructs the data marts.
+As can be seen from the previous image, there are several layers of repository. While there might be different warehousing architecture, the principles of data layer still persist. Some might skips warehouse layer entirely and directly connects staging to the data marts.
 
-The first layer is of course the data source layer. The data source layer can be made up of several operational systems, flat files, or even web API. The sources in this layer may come from internal or external third-party system. Due to the difference in data types, schemas, and semantics, the data from this source layer is considered "dirty". By dirty we means that this data is not ready for analysis, especially aggregated analysis.
+The first layer is of course the data source layer. The source layer can be made up of several operational systems, flat files, or even web API. The sources in this layer may come from internal or external third-party system. Due to the difference in data types, schemas, and semantics, the data from this source layer is considered "dirty". By dirty we means that this data is not ready for analysis, especially aggregated analysis.
 
 So the next layer, staging, is used as temporary repository for data cleaning and processing. This staging area collects data from source layer and prepare it for analysis.
 
-The third layer is warehouse. While the data is already treated and prepared on the previous layer, this layer is used to construct a new OLAP specific schema called star schema. Basically we convert the structure of the data from the transactional model with focus on data normalization, streamlined storage, and write/update speed to the denormalized analytical model with focus on data reading speed.
+The third layer is warehouse. While the data is already treated and prepared on the previous layer, this layer is used to construct a new OLAP specific schema called star schema. Basically we convert the structure of the data from the transactional model with focus on data normalization, streamlined storage, and write/update speed to the denormalized analytical model with focus on optimizing data reading.
 
 A star schema is a collection of dimension tables and one or more fact tables<sup>2,3</sup>. The fact table contains transactional information while dimension table contains only master data<sup>2,3,4,5</sup>.
 
 In the warehouse layer, we use the star schema to create a uniform and centralized data across the organization.
 
-The data mart layer is optional in some cases. This layer provides easier access to data stored in data warehouse from different business areas. Data in this layer are in a ready-to-use format rather than the facts and dimensions table in warehouse that needs to be joined together.
+The data mart layer is optional in some cases. This layer provides easier access to data stored in data warehouse from different business areas. Data in this layer are in a ready-to-use format rather than the facts and dimensions table format in warehouse that needs to be joined together.
 
 The last layer is presentation layer, where the consumer of the data is located. This consumer can be analytical tools like dashboard or BI systems, mining systems, or even regular user that access the data marts using query.
 
@@ -58,7 +57,7 @@ Data in warehouse layer are then moved to data marts for specific use cases such
 Table `app_reviews` and `2021_app_reviews` contains the reviews data and are used in dashboarding tools. Table `sentiment_analysis_dataset` and `sampled_sentiment_analysis` are used to train sentiment analysis while table `sentiment_analysis` is used to store the sentiment predicted by the ML model. Table `topic_modelling` contains training data for topic modelling.
 
 ## Moving Data Between Layers
-The movement of data from source until it reaches data warehouse is called pipeline. The act of moving data from one layer to another is referred to as Extract, Transform and Load, or ETL for short.
+The movement path of data from source to the warehouse is called data pipeline. The act of moving data from one layer to another is referred to as Extract, Transform and Load, or ETL for short.
 
 To configure the pipeline and run the ETL jobs, we use Airflow to monitor and execute our workflows. For more detailed information on the installation of Airflow please refer to my blog post, [Running Airflow in Docker](https://dionricky.com/tech/data-engineer/2022/01/09/running-airflow-in-docker.html).
 
