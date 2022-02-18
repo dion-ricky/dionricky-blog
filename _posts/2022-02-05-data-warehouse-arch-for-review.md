@@ -51,7 +51,7 @@ The dimension tables are suffixed with the `_dim` keyword while fact tables didn
 ### Data Marts
 Data in warehouse layer are then moved to data marts for specific use cases such as analysis and data mining. The figure below shows the data marts for app review analysis.
 
-![App Review Data Marts](https://storage.googleapis.com/dionricky-blog/2022-02-05-data-warehouse-arch-for-review/sapporo_mart_20220205.png)
+![App Review Data Marts](https://storage.googleapis.com/dionricky-blog/2022-02-05-data-warehouse-arch-for-review/sapporo_mart_20220218.png)
 <br>*Figure 2.3.1 App Review Data Marts*
 
 Table `app_reviews` and `2021_app_reviews` contains the reviews data and are used in dashboarding tools. Table `sentiment_analysis_dataset` and `sampled_sentiment_analysis` are used to train sentiment analysis while table `sentiment_analysis` is used to store the sentiment predicted by the ML model. Table `topic_modelling` contains training data for topic modelling.

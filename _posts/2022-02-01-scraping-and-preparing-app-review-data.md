@@ -16,7 +16,7 @@ In this post, I will explore the collection and cleaning process of App Reviews 
 ## Data Collection
 There are two main sources of app reviews, Google Play Store and Apple Store. We will refer to Google Play Store as Play Store from now on, since it is a bit too much to repeat it again and again.
 
-For scraping Play Store reviews, I use [google-play-store][jomingyu-scraper] library by JoMingyu. It's a great scraper in general. It supports pausing using continuation, supports scraping app details and even app permissions, also the author is still actively maintaining it so it's another plus for this library.
+For scraping Play Store reviews, I use [google-play-scraper][jomingyu-scraper] library by JoMingyu. It's a great scraper in general. It supports pausing using continuation, supports scraping app details and even app permissions, also the author is still actively maintaining it so it's another plus for this library.
 
 For Apple Store however, things are a bit bleak. Since my pipeline uses Python, I'm forced to look for scraping library that are written in Python. At the time I work on this project, I couldn't find any decent scraper. The best one that I've found is written in JavaScript. Since I'm running out of time, I decided to just bite the bullet. I constructed an automated daily scraper using [app-store-scraper][facu-scraper] library by facundoolano. The automated scraper is running on a Cloud Function instance in Google Cloud Platform. The construction of this function however, is not included in this post.
 
@@ -35,7 +35,7 @@ result, continuation_token = reviews(
 )
 ```
 
-The reviews from google-play-store library contains a lot of information. Let's see what the output of the previous command is.
+The reviews from google-play-scraper library contains a lot of information. Let's see what the output of the previous command is.
 ```python
 [
     {
