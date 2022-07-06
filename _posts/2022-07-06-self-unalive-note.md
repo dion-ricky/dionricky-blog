@@ -34,3 +34,12 @@ Saya harap kematian saya tidak diperbincangkan secara luas. Saya harap informasi
 Saya juga ingin menekankan bahwa riwayat magang dan keikutsertaan dalam program di perusahaan yang tidak akan saya sebut namanya juga TIDAK ADA hubungannya sama sekali dengan apa yang saya lakukan. Saya harap informasi ini tidak disebarluaskan.
 
 Kalau misalnya masih ada yang melakukan hal-hal yang saya sampaikan diatas maka orang itu berhak mendapat sertifikat sebagai orang bodoh, gila, dan psikopat.
+
+## Penutup
+Disini saya ingin menyampaikan bahwa mimpi saya adalah untuk menjadi peneliti/ilmuan. Saya ingin menulis makalah ilmiah yang dipublikasikan di jurnal terkemuka. Saya ingin mempelajari matematika, fisika, statistika, kecerdasan buatan (AI), pemrograman game. Saya ingin bisa menulis cerita, menggambar, melukis, menyanyi, membuat lagu. Saya mengakhiri hidup beserta mimpi-mimpi konyol saya.
+
+Saya harap semua orang bisa menghargai keputusan saya dan merelakan kepergian saya.
+
+Terima kasih kepada ayah, ibu, teman-teman, dan semua orang yang pernah saya temui karena telah mengisi ruang di kehidupan saya selama 21 tahun.
+
+👋👋👋
