@@ -1,4 +1,18 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+  // kramdown wraps fenced code blocks in div.language-mermaid > div.highlight > pre > code
+  // Mermaid needs a plain <pre class="mermaid"> element, so we convert them first.
+  document.querySelectorAll('code.language-mermaid').forEach(el => {
+    const pre = document.createElement('pre');
+    pre.classList.add('mermaid');
+    pre.textContent = el.textContent;
+    el.closest('.language-mermaid').replaceWith(pre);
+  });
+
+  mermaid.initialize({ startOnLoad: true });
+</script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
 
