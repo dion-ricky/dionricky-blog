@@ -24,5 +24,4 @@ jobs:
     - name: npm install, firebase deploy
       run: |
         npm ci
-        npm install
         ./node_modules/.bin/firebase deploy --project dionricky-blog --debug --only hosting --token "${{ secrets.FIREBASE_TOKEN }}"
