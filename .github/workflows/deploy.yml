@@ -7,21 +7,21 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    # Setup Ruby and install gems (handles bundler version and caching)
-    - uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '3.3'
-        bundler-cache: true
+      # Setup Ruby and install gems (handles bundler version and caching)
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
 
-    # Build jekyll
-    - name: Build Jekyll
-      run: bundle exec jekyll build
-      env:
-        JEKYLL_ENV: production
-    
-    - name: npm install, firebase deploy
-      run: |
-        npm ci
-        ./node_modules/.bin/firebase deploy --project dionricky-blog --debug --only hosting --token "${{ secrets.FIREBASE_TOKEN }}"
+      # Build jekyll
+      - name: Build Jekyll
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - name: npm install, firebase deploy
+        run: |
+          npm ci
+          ./node_modules/.bin/firebase deploy --project dionricky-blog --debug --only hosting
