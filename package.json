@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "firebase-tools": "^15.10.1"
+  },
+  "overrides": {
+    "picomatch": "^4.0.3"
   }
 }
