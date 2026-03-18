@@ -21,9 +21,11 @@ jobs:
         env:
           JEKYLL_ENV: production
 
+      - uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+
       - name: npm install, firebase deploy
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         run: |
           npm ci
           ./node_modules/.bin/firebase deploy --project dionricky-blog --debug --only hosting
